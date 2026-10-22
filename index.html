@@ -4,256 +4,689 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Suchitra K P | Data Analyst Portfolio</title>
-  <meta name="description" content="Suchitra K P's Data Analyst portfolio featuring SQL, Python, Power BI and data analytics projects.">
+  <meta name="description" content="Explore Suchitra K P's Data Analyst portfolio, featuring SQL, Python, Power BI and data analytics projects.">
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ===== COLOR PALETTE ===== */
+    :root {
+      --purple: #8c5b97;
+      --teal: #60b0ba;
+      --white: #ffffff;
+      --lavender: #eeeef5;
+      --text: #302638;
+      --muted: #6c6372;
+      --purple-dark: #70457a;
+    }
 
-    html { scroll-behavior: smooth; }
+    /* ===== GLOBAL STYLES ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f8fafc;
-      color: #172033;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--lavender);
+      color: var(--text);
       line-height: 1.7;
     }
 
+    a {
+      transition: 0.2s ease;
+    }
+
+    .container {
+      width: 84%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* ===== NAVIGATION ===== */
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 8%;
-      background: white;
-      border-bottom: 1px solid #e5eaf2;
-      flex-wrap: wrap;
-      gap: 12px;
+      padding: 18px 8%;
+      background: var(--white);
+      border-bottom: 1px solid #ded9e6;
+      gap: 20px;
     }
 
-    nav .logo { font-size: 21px; font-weight: bold; color: #2563eb; }
-
-    nav a {
+    .logo {
+      color: var(--purple);
+      font-size: 22px;
+      font-weight: 800;
       text-decoration: none;
-      color: #334155;
-      margin-left: 18px;
-      font-size: 14px;
+      white-space: nowrap;
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    /* ===== HERO SECTION ===== */
     .hero {
-      padding: 95px 8% 85px;
-      background: #edf4ff;
+      min-height: 530px;
+      display: flex;
+      align-items: center;
+      padding: 85px 8%;
+      background: var(--lavender);
     }
 
-    .hero .tag {
-      color: #2563eb;
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 15px;
+      background: var(--white);
+      color: var(--purple);
+      border: 1px solid #dfd2e5;
+      border-radius: 30px;
+      font-size: 12px;
       font-weight: bold;
-      font-size: 14px;
+      letter-spacing: 1.5px;
     }
 
     h1 {
-      font-size: clamp(36px, 6vw, 58px);
-      line-height: 1.2;
-      margin: 18px 0;
-      max-width: 750px;
+      margin: 22px 0;
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.15;
+      letter-spacing: -1.5px;
     }
 
-    h1 span { color: #2563eb; }
+    h1 span {
+      color: var(--purple);
+    }
 
-    .hero p { max-width: 650px; color: #475569; }
+    .hero-description {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 17px;
+    }
 
-    .buttons { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
 
     .btn {
       display: inline-block;
-      padding: 12px 20px;
+      padding: 12px 22px;
+      border: 2px solid transparent;
       border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
       font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
     }
 
-    .primary { background: #2563eb; color: white; }
-    .secondary { border: 1px solid #cbd5e1; color: #172033; background: white; }
+    .btn-primary {
+      background: var(--purple);
+      color: var(--white);
+    }
 
-    section { padding: 65px 8%; }
+    .btn-primary:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+    }
 
-    .section-title { font-size: 30px; margin-bottom: 10px; }
+    .btn-secondary {
+      background: var(--white);
+      color: #397780;
+      border-color: var(--teal);
+    }
 
-    .subtitle { color: #64748b; margin-bottom: 28px; }
+    .btn-secondary:hover {
+      background: #e1f2f3;
+    }
 
-    .about { max-width: 800px; color: #475569; }
+    /* ===== GENERAL SECTIONS ===== */
+    section {
+      padding: 75px 8%;
+    }
 
-    .skills, .projects {
+    .section-heading {
+      margin-bottom: 12px;
+      color: var(--purple);
+      font-size: 32px;
+      line-height: 1.3;
+    }
+
+    .section-subtitle {
+      margin-bottom: 32px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-section {
+      background: var(--white);
+    }
+
+    .about-content {
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .about-content p + p {
+      margin-top: 14px;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-section {
+      background: var(--lavender);
+    }
+
+    .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
+      gap: 20px;
     }
 
     .card {
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 24px;
+      padding: 25px;
+      background: var(--white);
+      border: 1px solid #e0dce8;
+      border-radius: 14px;
+      box-shadow: 0 5px 18px #8c5b9710;
+      transition: transform 0.25s, box-shadow 0.25s;
     }
 
-    .card h3 { margin-bottom: 10px; }
-    .card p { color: #64748b; font-size: 14px; }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px #8c5b9720;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: var(--purple);
+      font-size: 19px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
 
     .skill {
       display: inline-block;
-      background: #edf4ff;
-      color: #1d4ed8;
+      margin: 4px 3px 4px 0;
       padding: 6px 11px;
-      margin: 5px 3px 0 0;
+      background: var(--lavender);
+      color: var(--purple-dark);
       border-radius: 6px;
       font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ===== PROJECTS ===== */
+    .projects-section {
+      background: var(--white);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
+
+    .project-number {
+      display: inline-block;
+      margin-bottom: 15px;
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: var(--purple);
+      font-size: 20px;
+    }
+
+    .project-card p {
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     .project-link {
       display: inline-block;
-      margin-top: 16px;
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: bold;
+      margin-top: 15px;
+      color: #397780;
       font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
     }
 
-    .contact {
-      background: #172033;
-      color: white;
+    .project-link:hover {
+      color: var(--purple);
+      text-decoration: underline;
+    }
+
+    .coming-soon {
+      display: inline-block;
+      padding: 5px 10px;
+      background: #e1f2f3;
+      color: #28666e;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* ===== EDUCATION ===== */
+    .education-section {
+      background: var(--lavender);
+    }
+
+    .education-card {
+      max-width: 750px;
+      border-left: 5px solid var(--teal);
+    }
+
+    .education-card h3 {
+      margin-bottom: 6px;
+    }
+
+    .education-card .year {
+      color: var(--purple);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-section {
+      background: var(--purple);
+      color: var(--white);
       text-align: center;
     }
 
-    .contact p { color: #cbd5e1; margin: 12px 0 22px; }
+    .contact-section .section-heading {
+      color: var(--white);
+    }
 
-    .contact a { color: #93c5fd; margin: 0 10px; }
+    .contact-section .section-subtitle {
+      max-width: 600px;
+      margin: 0 auto 25px;
+      color: var(--white);
+    }
 
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      padding: 10px 18px;
+      background: var(--white);
+      color: var(--purple-dark);
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .contact-links a:hover {
+      background: var(--lavender);
+      transform: translateY(-2px);
+    }
+
+    /* ===== FOOTER ===== */
     footer {
-      padding: 20px;
+      padding: 22px 8%;
+      background: var(--white);
+      color: var(--muted);
       text-align: center;
-      color: #64748b;
       font-size: 13px;
     }
 
-    @media (max-width: 600px) {
-      nav { padding: 18px 5%; }
-      nav a { margin-left: 8px; }
-      .hero { padding: 65px 6%; }
-      section { padding: 48px 6%; }
+    /* ===== MOBILE RESPONSIVENESS ===== */
+    @media (max-width: 700px) {
+      nav {
+        position: static;
+        flex-direction: column;
+        padding: 18px 5%;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 12px 18px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 65px 6%;
+      }
+
+      h1 {
+        letter-spacing: -0.5px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 55px 6%;
+      }
+
+      .section-heading {
+        font-size: 28px;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- ===== NAVIGATION ===== -->
   <nav>
-    <div class="logo">Suchitra K P</div>
-    <div>
+    <a href="#home" class="logo">Suchitra K P.</a>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="tag">ASPIRING DATA ANALYST</div>
-    <h1>Turning Data Into <span>Meaningful Insights.</span></h1>
-    <p>
-      Hi, I'm Suchitra, a 2026 B.Tech graduate in Electronics and
-      Communication Engineering from PES University. I'm building
-      my skills in data analytics to solve business problems using
-      SQL, Python and Power BI.
-    </p>
-    <div class="buttons">
-      <a class="btn primary" href="#projects">Explore My Projects</a>
-      <a class="btn secondary" href="#contact">Contact Me</a>
+  <!-- ===== HOME ===== -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <span class="tag">ASPIRING DATA ANALYST</span>
+
+      <h1>
+        Turning Data Into
+        <span>Meaningful Insights.</span>
+      </h1>
+
+      <p class="hero-description">
+        Hi, I'm Suchitra, a 2026 B.Tech graduate in Electronics and
+        Communication Engineering from PES University. I'm developing
+        my data analytics skills using SQL, Python, Excel and Power BI
+        to turn data into useful business insights.
+      </p>
+
+      <div class="buttons">
+        <a href="#projects" class="btn btn-primary">
+          Explore My Projects
+        </a>
+
+        <a href="#contact" class="btn btn-secondary">
+          Get In Touch
+        </a>
+      </div>
     </div>
   </header>
 
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p class="subtitle">A little about my journey</p>
-    <p class="about">
-      I am interested in data analytics, business intelligence and
-      data-driven decision-making. I enjoy exploring datasets,
-      identifying patterns and presenting findings in a clear way.
-      I am continuously learning and building hands-on projects
-      to strengthen my analytical and technical skills.
-    </p>
-  </section>
+  <!-- ===== ABOUT ===== -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <h2 class="section-heading">About Me</h2>
 
-  <section id="skills">
-    <h2 class="section-title">Skills</h2>
-    <p class="subtitle">Tools and technologies I am learning and using</p>
-    <div class="skills">
-      <div class="card">
-        <h3>Data Analysis</h3>
-        <span class="skill">SQL</span>
-        <span class="skill">Python</span>
-        <span class="skill">Excel</span>
-        <span class="skill">pandas</span>
-      </div>
-      <div class="card">
-        <h3>Visualization</h3>
-        <span class="skill">Power BI</span>
-        <span class="skill">Data Visualization</span>
-        <span class="skill">Dashboard Design</span>
-      </div>
-      <div class="card">
-        <h3>Tools</h3>
-        <span class="skill">Git</span>
-        <span class="skill">GitHub</span>
-        <span class="skill">Jupyter Notebook</span>
+      <p class="section-subtitle">
+        My background, interests and career journey
+      </p>
+
+      <div class="about-content">
+        <p>
+          I am a B.Tech graduate in Electronics and Communication
+          Engineering from PES University, interested in data analytics,
+          business intelligence and data-driven decision-making.
+        </p>
+
+        <p>
+          I enjoy working with data, discovering patterns, answering
+          business questions and presenting findings through clear
+          visualizations. I am building practical experience through
+          projects using SQL, Python, Excel and Power BI.
+        </p>
+
+        <p>
+          My goal is to grow as a Data Analyst by combining analytical
+          thinking, technical skills and an understanding of real-world
+          business problems.
+        </p>
       </div>
     </div>
   </section>
 
-  <section id="projects">
-    <h2 class="section-title">My Projects</h2>
-    <p class="subtitle">
-      My portfolio will grow as I complete more hands-on projects.
-    </p>
-    <div class="projects">
-      <div class="card">
-        <h3>Project 01 — Coming Soon</h3>
-        <p>
-          My first data analytics project. Details, SQL queries,
-          analysis and dashboard will be added here after completion.
-        </p>
-        <span class="skill">SQL</span>
-        <span class="skill">Python</span>
-        <span class="skill">Power BI</span>
+  <!-- ===== SKILLS ===== -->
+  <section class="skills-section" id="skills">
+    <div class="container">
+      <h2 class="section-heading">My Skills</h2>
+
+      <p class="section-subtitle">
+        Technologies and tools for data analysis
+      </p>
+
+      <div class="skills-grid">
+
+        <div class="card">
+          <h3>Data Analysis</h3>
+          <p>Working with structured data and extracting insights.</p>
+
+          <div>
+            <span class="skill">SQL</span>
+            <span class="skill">Python</span>
+            <span class="skill">Excel</span>
+            <span class="skill">pandas</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Business Intelligence</h3>
+          <p>Building visual reports and communicating findings.</p>
+
+          <div>
+            <span class="skill">Power BI</span>
+            <span class="skill">DAX</span>
+            <span class="skill">Data Visualization</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Tools & Workflow</h3>
+          <p>Organizing code, analysis and project documentation.</p>
+
+          <div>
+            <span class="skill">Git</span>
+            <span class="skill">GitHub</span>
+            <span class="skill">Jupyter Notebook</span>
+          </div>
+        </div>
+
       </div>
-      <div class="card">
-        <h3>Project 02 — Coming Soon</h3>
-        <p>
-          A future project exploring customer behavior, business
-          performance or other real-world data problems.
-        </p>
-        <span class="skill">Analytics</span>
-        <span class="skill">Visualization</span>
+
+      <!-- Remove any skill you have not started learning yet. -->
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <h2 class="section-heading">My Projects</h2>
+
+      <p class="section-subtitle">
+        Practical projects demonstrating my analytical skills.
+        More projects will be added as I complete them.
+      </p>
+
+      <div class="projects-grid">
+
+        <div class="card project-card">
+          <span class="project-number">PROJECT 01</span>
+
+          <h3>E-commerce Sales Analytics</h3>
+
+          <p>
+            Planned analysis of sales, profitability, product performance
+            and regional trends to identify business opportunities.
+          </p>
+
+          <span class="skill">SQL</span>
+          <span class="skill">Python</span>
+          <span class="skill">Power BI</span>
+
+          <p style="margin-top: 18px;">
+            <span class="coming-soon">In Progress</span>
+          </p>
+        </div>
+
+        <div class="card project-card">
+          <span class="project-number">PROJECT 02</span>
+
+          <h3>Customer Retention Analytics</h3>
+
+          <p>
+            Planned analysis of customer behavior, repeat purchases
+            and retention patterns to explore ways to improve loyalty.
+          </p>
+
+          <span class="skill">SQL</span>
+          <span class="skill">Python</span>
+          <span class="skill">Power BI</span>
+
+          <p style="margin-top: 18px;">
+            <span class="coming-soon">Planned</span>
+          </p>
+        </div>
+
+        <div class="card project-card">
+          <span class="project-number">PROJECT 03</span>
+
+          <h3>IT Incident & SLA Analytics</h3>
+
+          <p>
+            Planned analysis of incident volumes, resolution times,
+            priorities and service-level agreement performance.
+          </p>
+
+          <span class="skill">SQL</span>
+          <span class="skill">Power BI</span>
+          <span class="skill">Analytics</span>
+
+          <p style="margin-top: 18px;">
+            <span class="coming-soon">Planned</span>
+          </p>
+        </div>
+
       </div>
-      <div class="card">
-        <h3>Project 03 — Coming Soon</h3>
-        <p>
-          A future project focused on operational metrics,
-          reporting and actionable business insights.
-        </p>
-        <span class="skill">SQL</span>
-        <span class="skill">Dashboard</span>
+
+      <!--
+        WHEN A PROJECT IS COMPLETED:
+        1. Replace its description with the actual work.
+        2. Add a GitHub repository link.
+        3. Add a dashboard link or screenshots.
+        4. Update its status.
+        5. Add more project cards by copying a card above.
+      -->
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section class="education-section" id="education">
+    <div class="container">
+      <h2 class="section-heading">Education</h2>
+
+      <p class="section-subtitle">
+        My academic background
+      </p>
+
+      <div class="card education-card">
+        <h3>Bachelor of Technology — Electronics and Communication Engineering</h3>
+
+        <p>PES University</p>
+
+        <p class="year">2022 – 2026</p>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2 class="section-title">Let's Connect</h2>
-    <p>I'm building my portfolio and exploring data analytics opportunities.</p>
-    <a href="https://github.com/Suchitrakp" target="_blank" rel="noopener noreferrer">GitHub</a>
-    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <!-- ===== CONTACT ===== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-heading">Let's Connect</h2>
+
+      <p class="section-subtitle">
+        I'm building my data analytics portfolio and exploring
+        opportunities to learn, grow and contribute.
+      </p>
+
+      <div class="contact-links">
+        <a
+          href="https://github.com/Suchitrakp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+
+        <!-- Replace this with your actual LinkedIn profile URL. -->
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+
+        <!-- Add your professional email when ready. -->
+      </div>
+    </div>
   </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
-    © 2026 Suchitra K P · Data Analyst Portfolio
+    <p>
+      © 2026 Suchitra K P | Data Analyst Portfolio
+    </p>
+    <p>Built with HTML and CSS.</p>
   </footer>
+
 </body>
 </html>
